@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+// Funktion zur Berechnung der Kreuzkorrelation
+void Kreuzkorrelation(const double Bild1[32][32], const double Bild2[32][32], double SUMME[11][11]) {
+    
+    // Größe des Ergebnisbildes
+    int Zeile = 11;
+    int Spalte = 11;
+
+    // Schleifen für die Kreuzkorrelation
+    for (int i = 0; i < Zeile; i++) {
+        for (int j = 0; j < Spalte; j++) {
+            SUMME[i][j] = 0.0;
+            for (int x = 0; x < 32; x++) {
+                for (int y = 0; y < 32; y++) {
+                    SUMME[i][j] += Bild1[x][y]*Bild2[i + x][j + y];
+                }
+            }
+        }
+    }
+}
+
+int main() {
+    
+    // Bilddaten abrufen
+    double Bild1[32][32] = {
+        
+    };
+
+    double Bild2[32][32] = {
+        
+    };
+
+    // Ergebnisbild als Array
+    double SUMME[11][11];
+
+    // Kreuzkorrelation berechnen
+    Kreuzkorrelation(Bild1, Bild2, SUMME);
+
+    // Ergebnis ausgeben
+    for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 10; ++j) {
+            cout << SUMME[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
