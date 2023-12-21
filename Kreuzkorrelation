@@ -46,6 +46,19 @@ int main() {
         }
         cout << endl;
     }
+double max=SUMME[0][0];
+    
+    for(int i=0; i<=121; i++)
+    {
+        for(int j=0; j<=121; j++){
+            
+        if(SUMME[i][j]>max)
+        {
+            max=SUMME[i][j];
+            cout<< max <<endl;      
+       }
+    }
+}
 
-    return 0;
+return 0;
 }
